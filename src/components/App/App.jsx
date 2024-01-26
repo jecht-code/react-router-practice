@@ -2,6 +2,10 @@ import axios from 'axios';
 import './App.css';
 import StudentForm from '../StudentForm/StudentForm.jsx';
 import StudentList from '../StudentList/StudentList.jsx';
+import AllStudents from '../allStudents/allStudents.jsx';
+import Home from '../Home/Home.jsx';
+import About from '../About/About.jsx';
+import { HashRouter as Router, Route } from 'react-router-dom';
 
 function App() {
     return (
@@ -10,10 +14,20 @@ function App() {
             <h1 className="App-title">GitHub Student List</h1>
             </header>
             <br/>
-            <StudentForm />
+            <Router>
+                <Route path="/" exact>
+                    <Home />
+                </Route>
+                
+                <Route path="/about" >
+                    <About />
+                </Route>
 
-            <p>Student list:</p>
-            <StudentList />
+                <Route path="/allStudents" >
+                    <AllStudents />
+                </Route>
+
+            </Router>
         </div>
     );
 }
